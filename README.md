@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is the seed of a collection collection of Processing-based sample code that interact with the Ryze Tello drone.
+This is the seed of a collection of Processing-based sample code that interact with the Ryze Tello drone.
 
 If you are not familar with Processing check https://processing.org first. 
 
