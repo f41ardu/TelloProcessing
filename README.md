@@ -13,7 +13,7 @@ This package is devloped on an Raspberry 3+.
 
 ## Project Description
 
-You will find diferent sample programs based on the tello sdk Tello SDK Documentation EN_1.3_1122.pdf 
+You will find different sample programs based on the tello sdk Tello SDK Documentation EN_1.3_1122.pdf 
 and Processing.  
 
 We will start with a simple proof of concept. 
