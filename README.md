@@ -20,7 +20,7 @@ We will start with a simple proof of concept.
 
 - **TelloTest**
 
- In TelloTest,You can send a couple of wellknow commands from the 
+ In TelloTest,You can send a couple of wellknow commands from the keyboar like command, takeoff, land, and so on.  
 
 - **TelloStatus** 
   
