@@ -25,7 +25,7 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 // 
 // 12/01/2019 version 0.2 
 // 
-// simple keyboard inport handler
+// simple keyboard import handler
 
 void keyPressed() {
 
