@@ -69,12 +69,16 @@ void setup() {
 void draw() {
  
   background(0);
+  // show help 
+  text("Tello Processing Demo", 30, -140, width, height);
+  text("Press <ENTER> to start", 30, -110, width, height);
+  text("Tello command tested so far are:\ncommand takeoff land flip forward back left right", 30, -70, width, height);
   // show input 
-  text(textBuffer, 30, 0, width, height);
+  text("Tello:" + textBuffer, 30, 0, width, height);
   // show buffer send 
-  text(output, 30, 40, width, height);
+  text("Send:" + output, 30, 40, width, height);
   // show what Tello tell us 
-  text(received, 30, 80, width, height);
+  text("Received:" + received, 30, 80, width, height);
 
 // add counter  
   if (received != "OK") { 
