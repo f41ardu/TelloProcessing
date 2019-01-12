@@ -9,7 +9,7 @@ If you are not familar with Processing check https://processing.org first.
 "Processing is a flexible software sketchbook and a language for 
 learning how to code within the context of the visual arts."
 
-This package is devloped on a Raspberry 3+.
+This package is devloped on an Raspberry 3+.
 
 ## Project Description
 
