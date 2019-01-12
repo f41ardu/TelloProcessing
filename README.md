@@ -22,7 +22,7 @@ We will start with a simple proof of concept.
 
  In TelloTest,You can send a couple of wellknow commands from the 
 
-- ** TelloStatus ** 
+- **TelloStatus** 
   
  Will be devloped next. Stay tuned
 
