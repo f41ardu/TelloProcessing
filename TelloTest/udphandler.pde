@@ -23,7 +23,7 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 // Simple UDP based Processing application for Tello  
 // 
 // 
-// 12/01/2019 version 0.2  
+// 12/01/2019 version 0.3  
 // 
 // udp receive handler
 
@@ -36,19 +36,6 @@ void receive( byte[] data ) {          // <-- default handler
     print(char(data[i]));
   }
   // Debug will be removed later
+  receivedData = true;
   println();
 }
-
-/* for future use (ie. Video) 
-String lip       = "192.168.10.1";  // the remote IP address
-int lport        = 8889;    // the destination port
- 
- void MYreceive( byte[] data2, String lip, int lport ) {   // <-- extended handler
- received = ""; 
- for (int i=0; i < data2.length; i++) {
- received+=char(data2[i]); 
- print(char(data2[i]));
- }
- println();
- }
- */
