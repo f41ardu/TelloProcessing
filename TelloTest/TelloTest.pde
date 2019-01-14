@@ -23,7 +23,7 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 // Simple UDP based Processing application for Tello  
 // 
 // 
-// 12/01/2019 version 0.3 
+// 12/01/2019 version 0.3 (experimental)
 // 
 
 import hypermedia.net.*;
@@ -53,7 +53,7 @@ void setup() {
 
   // UDP setup using default handler receive
   udp = new UDP(this ,9000 );  // create a new datagram connection on port 6000
-  // udp.setBuffer( 1518 );
+   // udp.setBuffer( 1518 );
   udp.log( true );     // <-- printout the connection activity
   udp.listen( true );           // and wait for incoming message
 
