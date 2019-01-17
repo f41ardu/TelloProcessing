@@ -39,7 +39,7 @@ public class JTello {
         "\n\t> "+e.getMessage());
     }
   }
-  final public String connect(final String strIP, final int port) throws Exception {
+  final public void connect(final String strIP, final int port) throws Exception {
     try { 
         this.port = port;
         ip = InetAddress.getByName(strIP);
@@ -61,7 +61,6 @@ public class JTello {
     System.out.println(s.getReceiveBufferSize());
     System.out.println(s.getSendBufferSize());
     System.out.println(s.getTrafficClass());
-    return("Ok"); 
   }
 
   final InetAddress getIP() {
