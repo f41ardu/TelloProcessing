@@ -22,9 +22,14 @@ We will start with a simple proof of concept.
 
  In TelloTest,You can send a couple of wellknow commands from the keyboar like command, takeoff, land, and so on.  
 
-- **TelloStatus** 
+- **NewTello** 
   
- Will be devloped next. Stay tuned
+ Use JTello (https://github.com/gnamingo/jTello/blob/master/JTello.java) from gnamingo, all command and all set and 
+ read commands are working. JTello.java need some minor modifications to be reused as processing.pde.
+
+- ** Video **
+
+  Next thing to come is to read incomming video data. 
 
 ## Environmental configuration
 
