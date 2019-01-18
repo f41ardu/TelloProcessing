@@ -23,7 +23,7 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 // Simple UDP based Processing application for Tello  
 // 
 // 
-// 12/01/2019 version 0.5 
+// 12/01/2019 version 0.5.1 
 // 
 
 // New Tello object  

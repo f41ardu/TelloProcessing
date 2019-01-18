@@ -27,7 +27,7 @@ We will start with a simple proof of concept.
  Use JTello (https://github.com/gnamingo/jTello/blob/master/JTello.java) from gnamingo, all command and all set and 
  read commands are working. JTello.java need some minor modifications to be reused as processing.pde.
 
-- ** Video **
+- **Video**
 
   Next thing to come is to read incomming video data. 
 
@@ -43,4 +43,9 @@ Specific to the content and description of each package, you can refer to the re
 
 If you have any questions about this sample code and the installation, please feel free to contact me. 
 Just contact me at https://tellopilots.com/members/f41ardu.5317/
+
+## Versioning
+
+With merge of experimantal Semantic Versioning will be introduced.
+(See https://semver.org/ for further details)
 
