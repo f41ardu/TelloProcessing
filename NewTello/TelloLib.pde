@@ -9,30 +9,37 @@ import java.net.InetAddress;
  redesigned for use with Processing 
  tested using Processing 3.4 
  @author f41ardu(at)arcor.de
-
-*/
+ 
+ version 0.5.1
+ 
+ */
 
 public class JTello {
 
-//  final public static JTello INSTANCE = new JTello();
+  //  final public static JTello INSTANCE = new JTello();
 
   private InetAddress ip = null;
   private int port;
   private DatagramSocket s;
   private boolean isImperial;
+  private boolean debug; 
 
   /** 
-  * 
-  * Constructor
-  *
-  **/ 
+   * 
+   * Constructor
+   *
+   **/
   JTello() {
   }; 
-  
+  JTello(boolean eDebug) {
+    debug = eDebug;
+  }; 
+
   final public void connect() {
-  try {
-    this.connect("192.168.10.1", 8889);
-  } catch( Exception e ) { 
+    try {
+      this.connect("192.168.10.1", 8889);
+    } 
+    catch( Exception e ) { 
       // caught SocketException & UnknownHostException
       println( "opening socket failed!"+
         "\n\t> address:"+ip+", port:"+port+
@@ -41,26 +48,29 @@ public class JTello {
   }
   final public void connect(final String strIP, final int port) throws Exception {
     try { 
-        this.port = port;
-        ip = InetAddress.getByName(strIP);
-        s = new DatagramSocket(port);
-        s.connect(ip, port);
-    } catch( Exception e ) { 
+      this.port = port;
+      ip = InetAddress.getByName(strIP);
+      s = new DatagramSocket(port);
+      s.connect(ip, port);
+    } 
+    catch( Exception e ) { 
       // caught SocketException & UnknownHostException
       println( "opening socket failed!"+
         "\n\t> address:"+ip+", port:"+port+
         "\n\t> "+e.getMessage());
     }
     sendCommand("command");
-    System.out.println(s.getLocalPort());
-    System.out.println(s.getLocalSocketAddress());
-    System.out.println(s.getLocalAddress());
-    System.out.println(s.getPort());
-    System.out.println(s.getRemoteSocketAddress());
-    System.out.println(s.getReuseAddress());
-    System.out.println(s.getReceiveBufferSize());
-    System.out.println(s.getSendBufferSize());
-    System.out.println(s.getTrafficClass());
+    if (debug) {
+      System.out.println(s.getLocalPort());
+      System.out.println(s.getLocalSocketAddress());
+      System.out.println(s.getLocalAddress());
+      System.out.println(s.getPort());
+      System.out.println(s.getRemoteSocketAddress());
+      System.out.println(s.getReuseAddress());
+      System.out.println(s.getReceiveBufferSize());
+      System.out.println(s.getSendBufferSize());
+      System.out.println(s.getTrafficClass());
+    }
   }
 
   final InetAddress getIP() {
@@ -76,7 +86,7 @@ public class JTello {
   }
 
   final public boolean isConnected() {
-    if(null == s)
+    if (null == s)
       return false;
     return s.isConnected();
   }
@@ -88,7 +98,7 @@ public class JTello {
   public void setImperial(boolean isImperial) {
     this.isImperial = isImperial;
   }
-  
+
   // *** Read Commands ***
 
   final public String getBattery() {
@@ -103,16 +113,16 @@ public class JTello {
     return sendCommand("time?");
   }
 
- // *** Commandline ***
+  // *** Commandline ***
 
   /**
    * here we go 
    */
- 
-   public String sendString(String command) {
+
+  public String sendString(String command) {
     return sendCommand(command);
   }
-  
+
   // *** Set Commands ***
 
   /**
@@ -202,7 +212,7 @@ public class JTello {
   // *** internal functions ***
 
   final private int getDistance(final int o) {
-    if(!isImperial())
+    if (!isImperial())
       return o;
     return Math.round((float)((float)o * 2.54));
   }
@@ -212,36 +222,41 @@ public class JTello {
   }
 
   final private String sendCommand(final String strCommand) {
-    if(null == strCommand || 0 == strCommand.length())
+    if (null == strCommand || 0 == strCommand.length())
       return "empty command";
-    if(!s.isConnected())
+    if (!s.isConnected())
       return "disconnected";
     byte[] receiveData = new byte[1024];
     final byte[] sendData = strCommand.getBytes();
     final DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, ip, port);
     try {
-    s.send(sendPacket);
-    } catch( IOException e ) { 
+      s.send(sendPacket);
+    } 
+    catch( IOException e ) { 
       // caught SocketException & UnknownHostException
       println( "sending Packet socket failed!"+
         "\n\t> address:"+ip+", port:"+port+
         " "+sendPacket+"\n\t> "+e.getMessage());
     }
     final DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-    try {s.receive(receivePacket);
-    } catch( Exception e ) { 
+    try {
+      s.receive(receivePacket);
+    } 
+    catch( Exception e ) { 
       // caught SocketException & UnknownHostException
       println( "receive packet failed!"+
         "\n\t> address:"+ip+", port:"+port+
         "\n\t> "+e.getMessage());
     }
     final String ret = new String(receivePacket.getData());
-    System.out.println("Tello " + strCommand + ": " + ret);
+    if (debug) {
+      System.out.println("Tello " + strCommand + ": " + ret);
+    }
     return ret;
   }
 
   final public void close() {
-    if(null != s)
+    if (null != s)
       s.close();
   }
 }
