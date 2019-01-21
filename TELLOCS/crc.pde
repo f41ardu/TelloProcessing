@@ -1,4 +1,5 @@
- class CRC
+//
+class CRC
     {
         //Utils to calculate packet CRCs
         //FCS crc
