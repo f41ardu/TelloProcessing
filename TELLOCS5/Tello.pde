@@ -122,8 +122,10 @@ public class Tello
             setPacketCRCs(packet);
             return (packet);
         }
-        
-        
+  /** 
+  /*
+  /*  document me
+  */        
   public byte[]  setAttAngle(float angle)
         {
             //                                                          crc         typ         cmdL        cmdH        seqL        seqH        ang1        ang2        ang3        ang4        crc         crc
@@ -139,8 +141,9 @@ public class Tello
             setPacketCRCs(packet);
 
             return (packet);
+           //  queryAttAngle();//refresh -> wird vom thread.avalable in drwa gelesen, es ist eine neue Logik zum Empfangen der Daten notwendig
 
-          //  Tello.queryAttAngle();//refresh
+            
         }
   /** 
   /*
