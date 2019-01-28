@@ -126,7 +126,7 @@ public class Tello
   /*
   /*  document me
   */        
-  public byte[]  setAttAngle(float angle)
+  public byte[]  setAttAngle(float angle) // better integert value, instead of float? 
         {
             //                                                          crc         typ         cmdL        cmdH        seqL        seqH        ang1        ang2        ang3        ang4        crc         crc
             byte[] packet  = { byte(0xcc), byte(0x78), byte(0x00), byte(0x27), byte(0x68), byte(0x58), byte(0x10), byte(0x00), byte(0x00), byte(0x00), byte(0x00), byte(0x00), byte(0x00), byte(0x5b), byte(0xc5) };
