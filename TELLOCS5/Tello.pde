@@ -126,21 +126,21 @@ public class Tello
         
   public byte[]  setAttAngle(float angle)
         {
-            //                                          crc    typ  cmdL  cmdH  seqL  seqH  ang1  ang2 ang3  ang4  crc   crc
-            byte[] packet  { 0xcc, 0x78, 0x00, 0x27, 0x68, 0x58, 0x10, 0x00, 0x00, 0x00, 0x00,0x00, 0x00, 0x5b, 0xc5 };
+            //                                                          crc         typ         cmdL        cmdH        seqL        seqH        ang1        ang2        ang3        ang4        crc         crc
+            byte[] packet  = { byte(0xcc), byte(0x78), byte(0x00), byte(0x27), byte(0x68), byte(0x58), byte(0x10), byte(0x00), byte(0x00), byte(0x00), byte(0x00), byte(0x00), byte(0x00), byte(0x5b), byte(0xc5) };
             
             //payload
-            packet[9] =  (byte) (i /*>> 0*/);
-            packet[10] = (byte) (i >> 8);
-            packet[11] = (byte) (i >> 16);
-            packet[12] = (byte) (i >> 24);
+            packet[9] =  (byte) ((int)angle /*>> 0*/);
+            packet[10] = (byte) ((int)angle >> 8);
+            packet[11] = (byte) ((int)angle >> 16);
+            packet[12] = (byte) ((int)angle >> 24);
             
             setPacketSequence(packet);
             setPacketCRCs(packet);
 
             return (packet);
 
-            Tello.queryAttAngle();//refresh
+          //  Tello.queryAttAngle();//refresh
         }
   /** 
   /*
