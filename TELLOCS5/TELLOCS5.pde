@@ -2,7 +2,7 @@
 
 ReceiverThread thread;
 
-String ip       = "192.168.10.1";  // the fixed remote IP address
+String ip       = "192.168.2.112";  // the fixed remote IP address
 int port        = 8889;    // the destination port
 String received = "";
 

@@ -30,8 +30,8 @@ class ReceiverThread extends Thread {
       e.printStackTrace();
     }
   }
-
-  String getData() {
+  
+   String getData() {
     // We set available equal to false now that we've gotten the data
     available = false;
     return ireceived;
