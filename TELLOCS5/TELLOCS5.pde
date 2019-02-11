@@ -1,10 +1,10 @@
 //
-
 ReceiverThread thread;
 
 String ip       = "192.168.10.1";  // the fixed remote IP address
 int port        = 8889;    // the destination port
 String received = "";
+byte[] bytesIn = new byte[2048]; 
 boolean connected = false; 
 color fillVal = color(126);
 
@@ -28,12 +28,17 @@ void setup() {
 
 
 void draw() {
- 
 
+   
    if (thread.available()) {
     received = "";
 
     received = thread.getData();
+    bytesIn = thread.getBytes();
+//    packet[5] = (byte)(height & 0xff);
+//    packet[6] = (byte)((height >>8) & 0xff);
+    println(((int)bytesIn[5] & 0xff) + ((int)bytesIn[6] << 8 ) ); 
+    
     if (received != "") {
       if ( received.contains("conn_ack") ) {
         println("Received conn_ack"); 

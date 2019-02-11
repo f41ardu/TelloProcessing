@@ -17,6 +17,7 @@ class ReceiverThread extends Thread {
 
   // Start with something 
   String ireceived;
+  byte[] byteReceived = new byte[2048]; 
 
   ReceiverThread () {
     ireceived = "";
@@ -35,6 +36,12 @@ class ReceiverThread extends Thread {
     // We set available equal to false now that we've gotten the data
     available = false;
     return ireceived;
+  }
+
+   byte[] getBytes() {
+    // We set available equal to false now that we've gotten the data
+    available = false;
+    return byteReceived;
   }
 
   boolean available() {
@@ -73,6 +80,7 @@ class ReceiverThread extends Thread {
 
     // Update 
     ireceived= new String(data);
+    byteReceived = data;
   }
 
 

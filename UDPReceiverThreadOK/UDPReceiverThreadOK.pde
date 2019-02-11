@@ -4,13 +4,14 @@
 // A Thread using receiving UDP to receive images
 
 
-String ip       = "192.168.2.111";  // the fixed remote IP address
+String ip       = "localhost";  // the fixed remote IP address
 int sendtoport        = 9000;    // the destination port
 
 ReceiverThread thread;
-ReceiverThread thread2;
-
-String received =""; 
+// ReceiverThread thread2;
+int i = 0; 
+String received = ""; 
+String returned = ""; 
 PFont font; 
 
 void setup() {
@@ -25,12 +26,12 @@ void setup() {
 void draw() {
   if (thread.available()) {
     received = "";
-
     received = thread.getData();
     if (received != "") {
-      //received = "OK -> " + received;
+      i++; 
+      returned = i + " OK -> " + received;
       //received = "OK"; 
-      thread.send("OK".getBytes(), ip, sendtoport );
+      thread.send(returned.getBytes(), ip, sendtoport );
     }
   }
 

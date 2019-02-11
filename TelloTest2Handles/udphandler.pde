@@ -30,12 +30,29 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 void receive( byte[] data ) {          // <-- default handler
   //void MYreceive( byte[] data, String ip, int port ) {   // <-- extended handler
   received = ""; 
-  for (int i=0; i < data.length; i++) {
+  /* for (int i=0; i < data.length; i++) {
     received+=char(data[i]); 
 // Debug will be removed later
-  //  print(char(data[i]));
-  }
+    print(char(data[i]));
+  } */ 
+  received = new String(data);
   // Debug will be removed later
   receivedData = true;
-//  println();
+ // println();
+  println( "Sender receive: \""+received); 
+}
+
+// void receive( byte[] data ) {          // <-- default handler
+void myownhandle( byte[] data, String ip, int port ) {   // <-- extended handler
+  received = ""; 
+  /* for (int i=0; i < data.length; i++) {
+    received+=char(data[i]); 
+// Debug will be removed later
+    print(char(data[i]));
+  } */ 
+  received = new String(data);
+  // Debug will be removed later
+  receivedData = true;
+ // println();
+  println( "MyOwn Sender receive: \""+received); 
 }

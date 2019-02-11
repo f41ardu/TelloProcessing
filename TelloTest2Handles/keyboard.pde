@@ -25,17 +25,28 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 // 
 // 12/01/2019 version 0.3 (experimental)
 // 
-// udp receive handler
+// simple keyboard import handler
 
-void receive( byte[] data ) {          // <-- default handler
-  //void MYreceive( byte[] data, String ip, int port ) {   // <-- extended handler
-  received = ""; 
-  for (int i=0; i < data.length; i++) {
-    received+=char(data[i]); 
-// Debug will be removed later
-  //  print(char(data[i]));
+void keyPressed() {
+
+  if (keyCode == BACKSPACE) {
+    if (textBuffer.length() > 0) {
+      textBuffer = textBuffer.substring(0, textBuffer.length()-1);
+    }
+  } else if (keyCode == DELETE) {
+    textBuffer = "";
+  } else if (keyCode != SHIFT) {
+    textBuffer = textBuffer + (key) ;
   }
-  // Debug will be removed later
-  receivedData = true;
-//  println();
+  
+  if (keyCode == ' ') {
+   textBuffer = textBuffer.substring(0, textBuffer.length()-1);
+   textBuffer = textBuffer + ' ';
+   }  
+
+  if (keyCode == ENTER) {
+    // remove CR
+    output = input = textBuffer = textBuffer.substring(0, textBuffer.length()-1);
+    textBuffer = "";
+  }
 }

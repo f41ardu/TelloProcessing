@@ -54,9 +54,14 @@ void setup() {
   // UDP setup using default handler receive
   udp = new UDP(this ,9000 );  // create a new datagram connection on port 6000
   udp.setBuffer( 1518 );
- // udp.log( true );     // <-- printout the connection activity
+  // udp.log( true );     // <-- printout the connection activity
   udp.listen( true );           // and wait for incoming message
-
+  udp2 = new UDP(this ,5000 );  // create a new datagram connection on port 6000
+  udp2.setBuffer( 1518 );
+  // udp.log( true );     // <-- printout the connection activity
+  udp2.listen( true );           // and wait for incoming message
+  udp2.setReceiveHandler("myownhandle");
+  
 }
 
 // Processing main loop
@@ -76,6 +81,7 @@ void draw() {
 
 // send command as long as no response is received and input is not empty  
   if ( receivedData != true && input != "" ) { 
+
     sendData();   
   } else {
     // reset to input and receivedData to accept new command
