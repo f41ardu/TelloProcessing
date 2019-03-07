@@ -17,7 +17,7 @@ void setup() {
 
   
 
-  // we connect to the camera via this custom GStreamer pipeline
+  // we connect to Tello via this custom GStreamer pipeline
   video = new GLVideo(this, "udpsrc port=11111 ! decodebin", GLVideo.NO_SYNC);
   video.play();
 
