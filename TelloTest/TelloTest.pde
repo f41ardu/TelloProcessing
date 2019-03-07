@@ -29,7 +29,6 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 import hypermedia.net.*;
 
 UDP udp;  // define UDP object one
-UDP udp2; // define UDP object two
 
 // Tello UDP communication  
 String ip       = "192.168.10.1";  // the fixed remote IP address
