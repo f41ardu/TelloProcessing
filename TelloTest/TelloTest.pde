@@ -29,10 +29,10 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 import hypermedia.net.*;
 
 UDP udp;  // define UDP object one
-UDP udp2; // define UDP object two
+//UDP udp2; // define UDP object two
 
 // Tello UDP communication  
-String ip       = "localhost";  // the fixed remote IP address
+String ip       = "192.168.10.1";  // the fixed remote IP address
 int port        = 8889;    // the destination port
 
 int retry = 10; 
