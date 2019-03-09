@@ -22,14 +22,20 @@ We will start with a simple proof of concept.
 
  In TelloTest,You can send a couple of wellknow commands from the keyboar like command, takeoff, land, and so on.  
 
-- **TelloStatus** 
+- **TelloVideoCapture** 
   
- Will be devloped next. Stay tuned
+ Demonstrate to receive a video stream from a TELLO. 
+
+- **TelloSDKVideo**
+
+ Combine TelloTest and TelloVideoCapture**
 
 ## Environmental configuration
 
-The sample code above is based on Processing 3.4. And you need to install the UDP library for Processing 
-from http://www.ubaa.net/shared/processing/udp/
+The sample code above is based on Processing 3.4. 
+Required Libraries: 
+UDP library for Processing http://www.ubaa.net/shared/processing/udp/
+OpenGL video playback for Processing https://github.com/gohai/processing-glvideo
 
 Specific to the content and description of each package, you can refer to the readme file in the related folder.
 
