@@ -30,12 +30,13 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 void receive( byte[] data ) {          // <-- default handler
   //void MYreceive( byte[] data, String ip, int port ) {   // <-- extended handler
   received = ""; 
+  received = data.toString(); 
+/*
   for (int i=0; i < data.length; i++) {
     received+=char(data[i]); 
 // Debug will be removed later
-    print(char(data[i]));
+    if (debug) print(received);
   }
-  // Debug will be removed later
+  */ 
   receivedData = true;
-  println();
 }
