@@ -23,20 +23,28 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 // Simple UDP based Processing application for Tello  
 // 
 // 
-// 12/01/2019 version 0.3  
+// 10/03/2019 version 1.0  
 // 
-// udp receive handler
+// udp receive handler and upd sender
 
 void receive( byte[] data ) {          // <-- default handler
   //void MYreceive( byte[] data, String ip, int port ) {   // <-- extended handler
   received = ""; 
-  received = data.toString(); 
-/*
+//  received = data.toString(); 
+
   for (int i=0; i < data.length; i++) {
     received+=char(data[i]); 
 // Debug will be removed later
     if (debug) print(received);
   }
-  */ 
+   
   receivedData = true;
+}
+
+void sendData() {
+  if (input != "") { 
+    // udp send require byteArray
+    byte[] byteBuffer = input.getBytes();
+    udp.send(byteBuffer, ip, port );   // the message to send
+  }
 }
