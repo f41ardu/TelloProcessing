@@ -23,7 +23,7 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 // Simple UDP based Processing application for Tello  
 // 
 // 
-// 09/03/2019 version 1.0 
+// 10/03/2019 version 1.1 
 // 
 
 import hypermedia.net.*;
@@ -94,12 +94,4 @@ void draw() {
     video.read();
   }
   image(video, 160, 5, width/2, height/2);
-}
-
-void sendData() {
-  if (input != "") { 
-    // udp send require byteArray
-    byte[] byteBuffer = input.getBytes();
-    udp.send(byteBuffer, ip, port );   // the message to send
-  }
 }
