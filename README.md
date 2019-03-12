@@ -24,11 +24,11 @@ We will start with a simple proof of concept.
 
 - **TelloVideoCapture** 
   
- Demonstrate to receive a video stream from a TELLO. 
+ Demonstrate to receive a video stream from a TELLO. (Raspberry PI only) 
 
 - **TelloSDKVideo**
 
- Combine TelloTest and TelloVideoCapture
+ Combine TelloTest and TelloVideoCapture (Raspberry PI only)
 
 ## Environmental configuration
 
@@ -41,6 +41,10 @@ OpenGL video playback for Processing https://github.com/gohai/processing-glvideo
 
 Specific to the content and description of each package, you can refer to the readme file in the related folder.
 
+## Restriction
+
+Video streaming only available on Raspberry PI. UDP streaming
+support is not implemented in the Processing Standard Video library for PC and MAC. 
 
 ## Contact Information
 
