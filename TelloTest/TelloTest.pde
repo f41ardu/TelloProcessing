@@ -1,3 +1,4 @@
+
 /*
 Copyright (c) 2019 f41ardu(at)arcor.de
  
@@ -25,6 +26,12 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 // 
 // 12/01/2019 version 0.3 
 // 
+
+/* 
+Video 
+ffplay -probesize 32 -i udp://0.0.0.0:11111 -framerate 30
+ffmpeg -i udp://0.0.0.0:11111 -f sdl "Tello"
+*/
 
 import hypermedia.net.*;
 
