@@ -54,7 +54,7 @@ void setup() {
   textAlign(LEFT, CENTER);
 
   // UDP setup using default handler receive
-  udp = new UDP(this ,9000 );  // create a new datagram connection on port 6000
+  udp = new UDP(this ,8889);  // create a new datagram connection on port 6000
   // udp.setBuffer( 1518 );
   udp.log( debug  );     // <-- printout the connection activity
   udp.listen( true );           // and wait for incoming message
@@ -92,6 +92,7 @@ void draw() {
   
   if (video.available()) {
     video.read();
+    //println(video.width()+":"+video.height());
   }
   image(video, 160, 5, width/2, height/2);
 }
