@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2019 f41ardu(at)arcor.de
+Copyright (c) 2019,2020 f41ardu(at)arcor.de
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@ Copyright (c) 2019 f41ardu(at)arcor.de
 // Simple UDP based Processing application for Tello  
 // 
 // 
-// 10/03/2019 version 1.1 
+// 03/01/2020 version 1.2 
 // 
 
 import hypermedia.net.*;
@@ -44,9 +44,7 @@ String output = "";
 String received = ""; 
 Boolean receivedData = false;
 Boolean debug = false; 
-
 PFont font;
-
 int startTime = 0; 
 
 void setup() {
@@ -56,7 +54,7 @@ void setup() {
   textAlign(LEFT, CENTER);
 
   // UDP setup using default handler receive
-  udp = new UDP(this ,8889);  // create a new datagram connection on port 6000
+  udp = new UDP(this , 8889);  // create a new datagram connection on port 6000
   // udp.setBuffer( 1518 );
   // udp.log( debug  );     // <-- printout the connection activity
   udp.listen( true );           // and wait for incoming message
@@ -102,6 +100,6 @@ void draw() {
   if (((millis() - startTime)) > 5000 ) {
     startTime = millis(); 
     stayConnect();
-    println("..");
+    // println("..");
   }
 }
