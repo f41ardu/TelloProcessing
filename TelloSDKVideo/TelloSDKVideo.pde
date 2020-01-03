@@ -47,6 +47,8 @@ Boolean debug = false;
 
 PFont font;
 
+int startTime = 0; 
+
 void setup() {
   size(640, 480, P2D);
   font = createFont("Sans Serif", 40);
@@ -56,13 +58,14 @@ void setup() {
   // UDP setup using default handler receive
   udp = new UDP(this ,8889);  // create a new datagram connection on port 6000
   // udp.setBuffer( 1518 );
-  udp.log( debug  );     // <-- printout the connection activity
+  // udp.log( debug  );     // <-- printout the connection activity
   udp.listen( true );           // and wait for incoming message
   
   // we connect to Tello via this custom GStreamer pipeline
   video = new GLVideo(this, "udpsrc port=11111 ! decodebin", GLVideo.NO_SYNC);
   video.play();
-
+  frameRate(20); 
+  startTime = millis(); 
 }
 
 // Processing main loop
@@ -95,4 +98,10 @@ void draw() {
     //println(video.width()+":"+video.height());
   }
   image(video, 160, 5, width/2, height/2);
+  
+  if (((millis() - startTime)) > 5000 ) {
+    startTime = millis(); 
+    stayConnect();
+    println("..");
+  }
 }

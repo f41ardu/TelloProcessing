@@ -48,3 +48,9 @@ void sendData() {
     udp.send(byteBuffer, ip, port );   // the message to send
   }
 }
+
+void stayConnect() { 
+    // udp send require byteArray
+    byte[] byteBuffer = "command".getBytes();
+    udp.send(byteBuffer, ip, port );   // the message to send
+}
