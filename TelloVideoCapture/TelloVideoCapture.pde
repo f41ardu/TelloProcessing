@@ -14,13 +14,10 @@ GLVideo video;
 
 void setup() {
   size(320, 240, P2D);
-
-  
-
   // we connect to Tello via this custom GStreamer pipeline
   video = new GLVideo(this, "udpsrc port=11111 ! decodebin", GLVideo.NO_SYNC);
   video.play();
-
+  frameRate(20); 
 }
 
 void draw() {
